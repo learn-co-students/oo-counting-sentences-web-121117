@@ -2,19 +2,29 @@ require 'pry'
 
 class String
 
-  def sentence?
-    
-  end
+ def sentence?
+   self.end_with?(".")
+ end
 
-  def question?
+ def question?
+   self.end_with?("?")
+ end
 
-  end
+ def exclamation?
+   self.end_with?("!")
+ end
 
-  def exclamation?
+ def count_sentences
+   #self.split(" ").length
+   counter = 0
+   array = self.split(" ")
+   array.each do |word|
+     if word.sentence? || word.question? || word.exclamation?
+       counter += 1
+     end
+   end
+   return counter
+ end
 
-  end
 
-  def count_sentences
-
-  end
 end
